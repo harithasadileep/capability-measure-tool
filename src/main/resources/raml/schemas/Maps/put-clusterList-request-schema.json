@@ -1,0 +1,43 @@
+{
+	"$schema": "http://json-schema.org/draft-03/schema#",
+	"title": "Industry Map GET Response Schema",
+	"description": "schema for a generic list of mapview ",
+	"definitions": {
+		"sizeType": {
+			"type": "string"
+		}
+	},
+	"type": "object",
+	"required": true,
+	"properties": {
+      "Cluster":{  
+         "type":"array",
+         "required":true,
+         "items":{  
+            "type":"object",
+            "required":true,
+            "properties":{  
+               "clusterId":{  
+                  "type":"string",
+                  "required":true
+               },
+               "mapName":{  
+                  "type":"string",
+                  "required":true
+               },
+               
+               "sectorName":{  
+                  "type":"string",
+                  "required":true
+               },
+               "clusterNm":{  
+                  "type":"string",
+                  "required":true
+               }
+            },
+            "additionalProperties":false
+         }
+      }
+   },
+   "additionalProperties":false
+}

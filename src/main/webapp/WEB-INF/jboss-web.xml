@@ -1,0 +1,3 @@
+<jboss-web>
+    <context-root>capability-measure-tool</context-root>
+</jboss-web>

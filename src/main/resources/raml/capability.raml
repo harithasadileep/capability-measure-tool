@@ -1,0 +1,219 @@
+#%RAML 0.8
+title: API for Capability
+version: v1
+baseUri: https://locahost:8080/capability-measure-tool/rest
+
+schemas:
+
+  - exceptionMessage: !include schemas/exceptions/exception-schema.json
+  - getMapsResponse : !include schemas/Maps/get-maps-response-schema.json
+  - getMapViewResponse : !include schemas/Maps/get-mapView-response-schema.json
+  - getClusterViewResponse : !include schemas/Maps/get-clusterView-response-schema.json
+  - putMapsRequest : !include schemas/Maps/put-map-request-schema.json
+  - putMapsResponse : !include schemas/Maps/put-map-response-schema.json
+  - putClusterRequest: !include schemas/Maps/put-cluster-request-schema.json
+  - putClusterResponse: !include schemas/Maps/put-cluster-response-schema.json
+  - putClustrList: !include schemas/maps/put-clusterList-request-schema.json
+  - putClusterListResponse: !include schemas/maps/put-clusterList-response-schema.json
+resourceTypes:
+  - item-allow-delete:
+          description: Defines an individual item retrieve from a collection. <<defined-description>>
+
+          put:
+            description: Update a <<resourcePathName|!singularize>> record. <<defined-put-description>>
+            body:
+              application/json:
+                schema:        <<defined-put-request-schema>>
+                example: |
+                  <<defined-put-request-example>>
+            responses:
+              200:
+                description: |
+                  Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request, the response will contain an entity describing or containing the result of the action.
+
+                body:
+                  application/json:
+                    schema:            <<defined-put-response-schema>>
+                    example: |
+                      <<defined-put-response-example>>
+              400:
+                description: |
+                  The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+
+                body:
+                  application/json:
+                    schema:            <<defined-put-exception-schema>>
+                    example: |
+                      <<defined-put-exception-example>>
+              404:
+                description: |
+                  The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.
+
+                body:
+                  application/json:
+                    schema:            <<defined-put-exception-schema>>
+                    example: |
+                      <<defined-put-exception-example>>
+              500:
+                description: |
+                  A generic error message, given when an unexpected condition was encountered and no more specific message is suitable.
+
+                body:
+                  application/json:
+                    schema:            <<defined-put-exception-schema>>
+                    example: |
+                      <<defined-put-exception-example>>
+
+
+
+
+  - collection:
+      description: Defines a collection of objects. <<defined-description>>
+      get:
+        description: Returns a single <<resourcePathName>>. <<defined-get-description>>
+
+        responses:
+          200:
+            description: |
+              Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request, the response will contain an entity describing or containing the result of the action.
+
+            body:
+              application/json:
+                schema: <<defined-get-response-schema>>
+                example: |
+                  <<defined-get-response-example>>
+          400:
+            description: |
+              The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+
+            body:
+              application/json:
+                schema: <<defined-get-exception-schema>>
+                example: |
+                  <<defined-get-exception-example>>
+          404:
+            description: |
+              The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.
+
+            body:
+              application/json:
+                schema: <<defined-get-exception-schema>>
+                example: |
+                  <<defined-get-exception-example>>
+          500:
+            description: |
+              A generic error message, given when an unexpected condition was encountered and no more specific message is suitable.
+
+            body:
+              application/json:
+                schema: <<defined-get-exception-schema>>
+                example: |
+                  <<defined-get-exception-example>>
+
+/CapabilityMeasure:
+   displayName: CapabilityMeasureResource
+   /MapView/{mapName}/{sectorName}:
+        displayName: Service used to Get(retrieve) and Post(create) a collection of ClientMaps.
+        type:
+          collection:
+            defined-description: Service used to Get(retrieve) and Post(create) a collection of ClientMaps.
+            defined-get-description: Service used to Get(retrieve) a collection of ClientMaps.
+            defined-get-response-schema:  getMapViewResponse
+            defined-get-response-example: !include examples/Maps/get-mapView-response-example.json
+            defined-get-exception-schema: exceptionMessage
+            defined-get-exception-example:  !include examples/exception/exception.example.json
+
+        get:
+          queryParameters:
+            password:
+              type: string
+
+
+
+
+
+   /ClusterView/{mapName}/{sectorName}/{clusterName}:
+                 displayName: Service used to Get(retrieve) and Post(create) a collection of ClientMaps.
+                 type:
+                   collection:
+                     defined-description: Service used to Get(retrieve) and Post(create) a collection of ClientMaps.
+                     defined-get-description: Service used to Get(retrieve) a collection of ClientMaps.
+                     defined-get-response-schema:  getClusterViewResponse
+                     defined-get-response-example: !include examples/Maps/get-clusterView-response-example.json
+                     defined-get-exception-schema: exceptionMessage
+                     defined-get-exception-example:  !include examples/exception/exception.example.json
+
+
+
+
+   /Maps:
+        displayName: Service used to Get(retrieve) and Post(create) a collection of CapabilityMaps.
+        type:
+          collection:
+            defined-description: Service used to Get(retrieve) and Post(create) a collection of CapabilityMaps.
+            defined-get-description: Service used to Get(retrieve) a collection of CapabilityMaps.
+            defined-get-response-schema:  getMapsResponse
+            defined-get-response-example: !include examples/Maps/get-maps-response-example.json
+            defined-get-exception-schema: exceptionMessage
+            defined-get-exception-example:  !include examples/exception/exception.example.json
+        get:
+          queryParameters:
+            mapType:
+              type: string
+            searchDesc:
+              type: string
+   /Archive/{mapName}/{sectorName}:
+     displayName: put a record
+     post:
+        responses:
+          200:
+             description: successfull archive
+             body:
+                application/json:
+                  schema: putMapsResponse
+                  example: !include examples/Maps/put-capabilityMap-response-example.json
+          404:
+            description: record not found to archive
+            body:
+              application/json:
+                schema: exceptionMessage
+
+          500:
+            description: internal server problem
+            body:
+              application/json:
+                schema: exceptionMessage
+
+
+   /Cluster:
+     post:
+       description: |
+         Create a new resource
+       body:
+         application/json:
+           schema: putClustrList
+           example: !include examples/Maps/put-clusterList-response-example.json
+       responses:
+         200:
+           description: |
+             Succesfully updated a new resource
+           body:
+             application/json:
+               schema: putClusterListResponse
+               example: !include examples/Maps/put-clusterList-response-example.json
+
+         404:
+            description: resource not found
+            body:
+              application/json:
+                schema: exceptionMessage
+         500:
+           description: internal server problem
+           body:
+             application/json:
+               schema: exceptionMessage
+         400:
+           description: Bad Request
+           body:
+             application/json:
+               schema: exceptionMessage

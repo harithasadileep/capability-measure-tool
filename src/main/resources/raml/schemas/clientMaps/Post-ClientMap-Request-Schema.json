@@ -1,0 +1,59 @@
+{
+	"$schema": "http://json-schema.org/draft-03/schema",
+	"title": "ClientMap POST Request Schema",
+	"description": "schema to POST a ClientMap",
+	"type": "object",
+	"required": true,
+	"properties": {
+		"mapId": {
+			"type": "string",
+			"required": true
+		},
+		"versionId": {
+			"type": "string",
+			"required": true
+		},
+		"sectorId": {
+			"type": "string",
+			"required": true
+		},
+		"archiveInd": {
+			"type": "string",
+			"required": true
+		},
+		"createDt": {
+			"type": "string",
+			"required": true
+		},
+		"lastUpdateDt": {
+			"type": "string",
+			"required": true
+		},
+		"mapDesc": {
+			"type": "string",
+			"required": true
+		},
+		"mapLastUpdateDt": {
+			"type": "string",
+			"required": true
+		},
+		"mapNm": {
+			"type": "string",
+			"required": true
+		},
+		"mapStatus": {
+			"type": "string",
+			"required": true
+		},
+		"mapTyp": {
+			"type": "string",
+			"required": true
+		},
+		"usrNmLastUpd": {
+			"type": "string",
+			"required": true
+		}
+	},
+	"additionalProperties": false
+
+}

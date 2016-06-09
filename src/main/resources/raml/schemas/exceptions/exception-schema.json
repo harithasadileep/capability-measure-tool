@@ -1,0 +1,65 @@
+{
+	"$schema": "http://json-schema.org/draft-03/schema",
+	"title": "exception wrapper",
+	"description": "wrapper for API exception ",
+	"type": "object",
+	"properties": {
+		"exceptionObject": {
+			"type": "object",
+			"properties": {
+				"exceptionCode": {
+					"description": "The provider exception code that is assigned to the exception message.",
+					"required": true,
+					"type": "string"
+				},
+				"timeStamp": {
+					"description": "The date and time that the exception message was generated in the ISO8601 format of YYYY-MM-DDThh:mm:ssZ in UTC time",
+					"type": "string",
+					"required": true,
+					"format": "string"
+				},
+				"message": {
+					"description": "The generated exception message in the requested language",
+					"required": true,
+					"type": "string"
+				},
+				"correlationId": {
+					"description": "A 128-bit Globally Unique Identifier (GUID) of an exception message that is output and corresponds to the processId of the calling process that requested the exception message",
+					"type": "string",
+					"required": true,
+					"pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+				},
+				"httpCode": {
+					"description": "The IETF HTTP status code that is assigned to the exception message. -1 for other.",
+					"enum": [
+						400,
+						403,
+						404,
+						405,
+						406,
+						409,
+						410,
+						500,
+						501,
+						503, -1
+					]
+				},
+				"causes": {
+					"type": "array",
+					"required": true,
+					"items": {
+						"properties": {
+							"causedetail": {
+								"description": "The detailed cause message which may be a stack trace or a raw exception message",
+								"type": "string"
+							}
+						},
+						"additionalProperties": false
+
+					}
+				}
+			}
+		}
+	},
+	"additionalProperties": false
+}

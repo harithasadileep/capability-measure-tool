@@ -1,0 +1,159 @@
+{
+	"$schema": "http://json-schema.org/draft-03/schema",
+	"title": "IndustryMap POST Request Schema",
+	"description": "schema to POST a IndustryMap",
+	"type": "object",
+	"required": true,
+	"properties": {
+
+		"Capability": {
+
+			"title": "Capability",
+			"type": "object",
+			"properties": {
+
+				"capabilityId": {
+					"type": "string",
+					"required": true
+				},
+				"mapId": {
+					"type": "string",
+					"required": true
+				},
+				"versionId": {
+					"type": "string",
+					"required": true
+				},
+				"sectorId": {
+					"type": "string",
+					"required": true
+				},
+				"clusterId": {
+					"type": "string",
+					"required": true
+				},
+				"capNotes": {
+					"type": "string",
+					"required": true
+				},
+				"capabilityDesc": {
+					"type": "string",
+					"required": true
+				},
+				"capabilityNm": {
+					"type": "string",
+					"required": true
+				},
+				"capabilityPos": {
+					"type": "string",
+					"required": true
+				},
+				"highValue": {
+					"type": "string",
+					"required": true
+				},
+				"createDt": {
+					"type": "string",
+					"required": true
+				},
+				"lastUpdateDt": {
+					"type": "string",
+					"required": true
+				},
+				"truncCapabilityNm": {
+					"type": "string",
+					"required": true
+				},
+				"usrNmLastUpd": {
+					"type": "string",
+					"required": true
+				}
+
+			},
+			"additionalProperties": false
+		},
+
+		"overLayXRef": {
+
+			"title": "OverLayXRef",
+			"type": "object",
+			"properties": {
+				"performanceMaturity": {
+					"type": "string",
+					"required": true
+				},
+				"serviceDelivery": {
+					"type": "string",
+					"required": true
+				},
+				"strategicPriority": {
+					"type": "string",
+					"required": true
+				},
+				"scope": {
+					"type": "string",
+					"required": true
+				}
+			},
+			"additionalProperties": false
+		},
+		"DimentionMaturityDescription": {
+
+			"title": "capabilityMaturityDescriptions",
+			"type": "object",
+			"properties": {
+				"maturityDesc": {
+					"type": "string",
+					"required": true
+				},
+				"capabilityId": {
+					"type": "string",
+					"required": true
+				},
+				"mapId": {
+					"type": "string",
+					"required": true
+				},
+				"sectorId": {
+					"type": "string",
+					"required": true
+				},
+				"maturityId": {
+					"type": "string",
+					"required": true
+				},
+				"dimentionId": {
+					"type": "string",
+					"required": true
+				},
+				"elmentId": {
+					"type": "string",
+					"required": true
+				},
+				"maturityTyp": {
+					"type": "string",
+					"required": true
+				},
+				"versionId": {
+					"type": "string",
+					"required": true
+				},
+				"createDt": {
+					"type": "string",
+					"required": true
+				},
+				"lastupdateDt": {
+					"type": "string",
+					"required": true
+				},
+				"usrNmLastUpd": {
+					"type": "string",
+					"required": true
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"additionalProperties": false
+
+}

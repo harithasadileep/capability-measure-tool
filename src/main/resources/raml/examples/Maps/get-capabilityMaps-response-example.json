@@ -1,0 +1,34 @@
+{
+  "size": "2",
+  "pagingState": null,
+  "clientMap": [
+    {
+      "mapId": "MP3",
+      "versionId": "3",
+      "sectorId": "ST25",
+      "archiveInd": "N",
+      "createDt": "05-11-2016 22:12:32-0400",
+      "lastUpdateDt": "05-11-2016 22:12:31-0400",
+      "mapDesc": "Investment Map",
+      "mapLastUpdateDt": "2016-05-11 22:12:31",
+      "mapNm": "K-10 Investments",
+      "mapStatus": "Active",
+      "mapTyp": "Client",
+      "usrNmLastUpd": "Dileep"
+    },
+    {
+      "mapId": "MP4",
+      "versionId": "4",
+      "sectorId": "ST26",
+      "archiveInd": "N",
+      "createDt": "05-11-2016 22:14:37-0400",
+      "lastUpdateDt": "05-11-2016 22:14:37-0400",
+      "mapDesc": "Health",
+      "mapLastUpdateDt": "2016-05-11 22:14:37",
+      "mapNm": "K-9 Health",
+      "mapStatus": "Active",
+      "mapTyp": "Client",
+      "usrNmLastUpd": "Dileep"
+    }
+  ]
+}
