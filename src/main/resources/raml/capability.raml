@@ -15,6 +15,7 @@ schemas:
   - putClusterResponse: !include schemas/Maps/put-cluster-response-schema.json
   - putClustrList: !include schemas/maps/put-clusterList-request-schema.json
   - putClusterListResponse: !include schemas/maps/put-clusterList-response-schema.json
+  - putCapabilityDetails: !include schemas/Maps/put-capabilityDetails-request-schema.json
 resourceTypes:
   - item-allow-delete:
           description: Defines an individual item retrieve from a collection. <<defined-description>>
@@ -209,6 +210,38 @@ resourceTypes:
                 schema: exceptionMessage
          500:
            description: internal server problem
+           body:
+             application/json:
+               schema: exceptionMessage
+         400:
+           description: Bad Request
+           body:
+             application/json:
+               schema: exceptionMessage
+   /capabilityDetailsUpdate:
+     post:
+       description: |
+               Create a new resource
+
+       body:
+         application/json:
+           schema: putCapabilityDetails
+           example: !include examples/Maps/put-clusterList-response-example.json
+
+       responses:
+         200:
+           description: Succesfully updated a new resource
+           body:
+             application/json:
+               schema: putMapsResponse
+               example: !include examples/Maps/put-clusterList-response-example.json
+         404:
+           description: Record not found
+           body:
+             application/json:
+               schema: exceptionMessage
+         500:
+           description: Internal server error
            body:
              application/json:
                schema: exceptionMessage

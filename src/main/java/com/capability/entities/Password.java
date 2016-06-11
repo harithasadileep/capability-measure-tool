@@ -6,44 +6,61 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+
 /**
  * @author dsomajohassula
  * 
- * The persistent class for the password database table.
+ * The persistent class for the PASSWORD database table.
  * 
  */
 @Entity
-@Table(name = "PASSWORD")
-public class PasswordEntity implements Serializable {
+@Table(name="PASSWORD")
+@NamedQuery(name="Password.findAll", query="SELECT p FROM Password p")
+public class Password implements Serializable {
 	
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/** The id. */
 	@EmbeddedId
-	private PasswordEntityKey id;
+	private PasswordPK id;
 
 	/** The create dt. */
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "CREATE_DT")
+	@Column(name="CREATE_DT")
 	private Date createDt;
 
 	/** The last update dt. */
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "LAST_UPDATE_DT")
+	@Column(name="LAST_UPDATE_DT")
 	private Date lastUpdateDt;
 
 	/** The password. */
+	@Column(name="PASSWORD")
 	private String password;
 
+	/** The map. */
+	//bi-directional many-to-one association to Map
+	@ManyToOne
+	@JoinColumns({
+		@JoinColumn(name="MAP_ID", referencedColumnName="MAP_ID"),
+		@JoinColumn(name="SECTOR_ID", referencedColumnName="SECTOR_ID"),
+		@JoinColumn(name="VERSION_ID", referencedColumnName="VERSION_ID")
+		})
+	private MapEntity map;
+
 	/**
-	 * Instantiates a new password entity.
+	 * Instantiates a new password.
 	 */
-	public PasswordEntity() {
+	public Password() {
 	}
 
 	/**
@@ -51,7 +68,7 @@ public class PasswordEntity implements Serializable {
 	 *
 	 * @return the id
 	 */
-	public PasswordEntityKey getId() {
+	public PasswordPK getId() {
 		return this.id;
 	}
 
@@ -60,7 +77,7 @@ public class PasswordEntity implements Serializable {
 	 *
 	 * @param id the new id
 	 */
-	public void setId(PasswordEntityKey id) {
+	public void setId(PasswordPK id) {
 		this.id = id;
 	}
 
@@ -116,6 +133,24 @@ public class PasswordEntity implements Serializable {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	/**
+	 * Gets the map.
+	 *
+	 * @return the map
+	 */
+	public MapEntity getMap() {
+		return this.map;
+	}
+
+	/**
+	 * Sets the map.
+	 *
+	 * @param map the new map
+	 */
+	public void setMap(MapEntity map) {
+		this.map = map;
 	}
 
 }

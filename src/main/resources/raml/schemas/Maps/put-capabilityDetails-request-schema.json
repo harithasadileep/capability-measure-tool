@@ -6,9 +6,9 @@
 	"required": true,
 	"properties": {
 
-		"Capability": {
+		"capability": {
 
-			"title": "Capability",
+			"title": "capability",
 			"type": "object",
 			"properties": {
 
@@ -75,10 +75,43 @@
 
 		"overLayXRef": {
 
-			"title": "OverLayXRef",
+			"title": "overLayXRef",
 			"type": "object",
 			"properties": {
+
+				"strategicChoiceId": {
+					"type": "string",
+					"required": true
+				},
+				"capabilityId": {
+					"type": "string",
+					"required": true
+				},
+				"mapId": {
+					"type": "string",
+					"required": true
+				},
+				"versionId": {
+					"type": "string",
+					"required": true
+				},
+				"sectorId": {
+					"type": "string",
+					"required": true
+				},
+				"createDt": {
+					"type": "string",
+					"required": true
+				},
+				"lastUpdateDt": {
+					"type": "string",
+					"required": true
+				},
 				"performanceMaturity": {
+					"type": "string",
+					"required": true
+				},
+				"scope": {
 					"type": "string",
 					"required": true
 				},
@@ -90,16 +123,17 @@
 					"type": "string",
 					"required": true
 				},
-				"scope": {
+				"usrNmLastUpd": {
 					"type": "string",
 					"required": true
 				}
+
 			},
 			"additionalProperties": false
 		},
-		"DimentionMaturityDescription": {
+		"capabilityMaturity": {
 
-			"title": "capabilityMaturityDescriptions",
+			"title": "capabilityMaturity",
 			"type": "object",
 			"properties": {
 				"maturityDesc": {
@@ -122,7 +156,64 @@
 					"type": "string",
 					"required": true
 				},
-				"dimentionId": {
+				"dimensionId": {
+					"type": "string",
+					"required": true
+				},
+				"elmentId": {
+					"type": "string",
+					"required": true
+				},
+				"maturityTyp": {
+					"type": "string",
+					"required": true
+				},
+				"versionId": {
+					"type": "string",
+					"required": true
+				},
+				"createDt": {
+					"type": "string",
+					"required": true
+				},
+				"lastupdateDt": {
+					"type": "string",
+					"required": true
+				},
+				"usrNmLastUpd": {
+					"type": "string",
+					"required": true
+				}
+			},
+			"additionalProperties": false
+		},
+
+		"dimensionMaturity": {
+
+			"title": "dimensionMaturity",
+			"type": "object",
+			"properties": {
+				"maturityDesc": {
+					"type": "string",
+					"required": true
+				},
+				"capabilityId": {
+					"type": "string",
+					"required": true
+				},
+				"mapId": {
+					"type": "string",
+					"required": true
+				},
+				"sectorId": {
+					"type": "string",
+					"required": true
+				},
+				"maturityId": {
+					"type": "string",
+					"required": true
+				},
+				"dimensionId": {
 					"type": "string",
 					"required": true
 				},

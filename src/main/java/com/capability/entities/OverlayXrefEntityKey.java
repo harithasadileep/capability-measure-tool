@@ -8,14 +8,23 @@ import javax.persistence.Embeddable;
 /**
  * @author dsomajohassula
  * 
- * The primary key class for the map database table.
+ * The primary key class for the OVERLAY_XREF database table.
  * 
  */
 @Embeddable
-public class MapEntityKey implements Serializable {
+public class OverlayXrefEntityKey implements Serializable {
 	
 	/** The Constant serialVersionUID. */
+	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
+
+	/** The strategic choice id. */
+	@Column(name="STRATEGIC_CHOICE_ID")
+	private String strategicChoiceId;
+
+	/** The capability id. */
+	@Column(name="CAPABILITY_ID")
+	private String capabilityId;
 
 	/** The map id. */
 	@Column(name="MAP_ID")
@@ -30,9 +39,45 @@ public class MapEntityKey implements Serializable {
 	private String sectorId;
 
 	/**
-	 * Instantiates a new map entity key.
+	 * Instantiates a new overlay xref entity key.
 	 */
-	public MapEntityKey() {
+	public OverlayXrefEntityKey() {
+	}
+	
+	/**
+	 * Gets the strategic choice id.
+	 *
+	 * @return the strategic choice id
+	 */
+	public String getStrategicChoiceId() {
+		return this.strategicChoiceId;
+	}
+	
+	/**
+	 * Sets the strategic choice id.
+	 *
+	 * @param strategicChoiceId the new strategic choice id
+	 */
+	public void setStrategicChoiceId(String strategicChoiceId) {
+		this.strategicChoiceId = strategicChoiceId;
+	}
+	
+	/**
+	 * Gets the capability id.
+	 *
+	 * @return the capability id
+	 */
+	public String getCapabilityId() {
+		return this.capabilityId;
+	}
+	
+	/**
+	 * Sets the capability id.
+	 *
+	 * @param capabilityId the new capability id
+	 */
+	public void setCapabilityId(String capabilityId) {
+		this.capabilityId = capabilityId;
 	}
 	
 	/**
@@ -96,12 +141,14 @@ public class MapEntityKey implements Serializable {
 		if (this == other) {
 			return true;
 		}
-		if (!(other instanceof MapEntityKey)) {
+		if (!(other instanceof OverlayXrefEntityKey)) {
 			return false;
 		}
-		MapEntityKey castOther = (MapEntityKey)other;
+		OverlayXrefEntityKey castOther = (OverlayXrefEntityKey)other;
 		return 
-			this.mapId.equals(castOther.mapId)
+			this.strategicChoiceId.equals(castOther.strategicChoiceId)
+			&& this.capabilityId.equals(castOther.capabilityId)
+			&& this.mapId.equals(castOther.mapId)
 			&& this.versionId.equals(castOther.versionId)
 			&& this.sectorId.equals(castOther.sectorId);
 	}
@@ -112,6 +159,8 @@ public class MapEntityKey implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int hash = 17;
+		hash = hash * prime + this.strategicChoiceId.hashCode();
+		hash = hash * prime + this.capabilityId.hashCode();
 		hash = hash * prime + this.mapId.hashCode();
 		hash = hash * prime + this.versionId.hashCode();
 		hash = hash * prime + this.sectorId.hashCode();

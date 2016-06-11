@@ -14,6 +14,7 @@ import com.capability.raml.model.ExceptionMessage;
 import com.capability.raml.model.GetClusterViewResponse;
 import com.capability.raml.model.GetMapViewResponse;
 import com.capability.raml.model.GetMapsResponse;
+import com.capability.raml.model.PutCapabilityDetails;
 import com.capability.raml.model.PutClusterListResponse;
 import com.capability.raml.model.PutClustrList;
 import com.capability.raml.model.PutMapsResponse;
@@ -137,6 +138,26 @@ public interface CapabilityMeasureResource {
         "application/json"
     })
     CapabilityMeasureResource.PostCapabilityMeasureClusterResponse postCapabilityMeasureCluster(PutClustrList entity)
+        throws Exception
+    ;
+
+    /**
+     * Create a new resource
+     * 
+     * 
+     * @param entity
+     *      e.g. {
+     *       "result" : "success",
+     *       "key" : "unique key of the CapabilityMap"
+     *     }
+     */
+    @POST
+    @Path("capabilityDetailsUpdate")
+    @Consumes("application/json")
+    @Produces({
+        "application/json"
+    })
+    CapabilityMeasureResource.PostCapabilityMeasureCapabilityDetailsUpdateResponse postCapabilityMeasureCapabilityDetailsUpdate(PutCapabilityDetails entity)
         throws Exception
     ;
 
@@ -402,6 +423,71 @@ public interface CapabilityMeasureResource {
             Response.ResponseBuilder responseBuilder = Response.status(500).header("Content-Type", "application/json");
             responseBuilder.entity(entity);
             return new CapabilityMeasureResource.PostCapabilityMeasureArchiveByMapNameBySectorNameResponse(responseBuilder.build());
+        }
+
+    }
+
+    public class PostCapabilityMeasureCapabilityDetailsUpdateResponse
+        extends com.capability.raml.support.ResponseWrapper
+    {
+
+
+        private PostCapabilityMeasureCapabilityDetailsUpdateResponse(Response delegate) {
+            super(delegate);
+        }
+
+        /**
+         * Succesfully updated a new resource e.g. {
+         *   "result" : "success",
+         *   "key" : "unique key of the CapabilityMap"
+         * }
+         * 
+         * @param entity
+         *     {
+         *       "result" : "success",
+         *       "key" : "unique key of the CapabilityMap"
+         *     }
+         */
+        public static CapabilityMeasureResource.PostCapabilityMeasureCapabilityDetailsUpdateResponse withJsonOK(PutMapsResponse entity) {
+            Response.ResponseBuilder responseBuilder = Response.status(200).header("Content-Type", "application/json");
+            responseBuilder.entity(entity);
+            return new CapabilityMeasureResource.PostCapabilityMeasureCapabilityDetailsUpdateResponse(responseBuilder.build());
+        }
+
+        /**
+         * Record not found
+         * 
+         * @param entity
+         *     
+         */
+        public static CapabilityMeasureResource.PostCapabilityMeasureCapabilityDetailsUpdateResponse withJsonNotFound(ExceptionMessage entity) {
+            Response.ResponseBuilder responseBuilder = Response.status(404).header("Content-Type", "application/json");
+            responseBuilder.entity(entity);
+            return new CapabilityMeasureResource.PostCapabilityMeasureCapabilityDetailsUpdateResponse(responseBuilder.build());
+        }
+
+        /**
+         * Internal server error
+         * 
+         * @param entity
+         *     
+         */
+        public static CapabilityMeasureResource.PostCapabilityMeasureCapabilityDetailsUpdateResponse withJsonInternalServerError(ExceptionMessage entity) {
+            Response.ResponseBuilder responseBuilder = Response.status(500).header("Content-Type", "application/json");
+            responseBuilder.entity(entity);
+            return new CapabilityMeasureResource.PostCapabilityMeasureCapabilityDetailsUpdateResponse(responseBuilder.build());
+        }
+
+        /**
+         * Bad Request
+         * 
+         * @param entity
+         *     
+         */
+        public static CapabilityMeasureResource.PostCapabilityMeasureCapabilityDetailsUpdateResponse withJsonBadRequest(ExceptionMessage entity) {
+            Response.ResponseBuilder responseBuilder = Response.status(400).header("Content-Type", "application/json");
+            responseBuilder.entity(entity);
+            return new CapabilityMeasureResource.PostCapabilityMeasureCapabilityDetailsUpdateResponse(responseBuilder.build());
         }
 
     }

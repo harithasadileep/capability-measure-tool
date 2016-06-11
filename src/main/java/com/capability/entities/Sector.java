@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -14,12 +15,13 @@ import javax.persistence.TemporalType;
 /**
  * @author dsomajohassula
  * 
- * The persistent class for the sector database table.
+ * The persistent class for the SECTOR database table.
  * 
  */
 @Entity
-@Table(name = "SECTOR")
-public class SectorEntity implements Serializable {
+@Table(name="SECTOR")
+@NamedQuery(name="Sector.findAll", query="SELECT s FROM Sector s")
+public class Sector implements Serializable {
 	
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -48,9 +50,9 @@ public class SectorEntity implements Serializable {
 	private String usrNmLastUpd;
 
 	/**
-	 * Instantiates a new sector entity.
+	 * Instantiates a new sector.
 	 */
-	public SectorEntity() {
+	public Sector() {
 	}
 
 	/**

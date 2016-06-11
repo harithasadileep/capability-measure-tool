@@ -1,7 +1,4 @@
-/**
- * @author hitjoshi
- * @created Dec 15, 2015
- */
+
 package com.capability.mapper;
 
 import java.util.HashMap;
@@ -15,6 +12,8 @@ import javax.validation.Validator;
 import org.springframework.stereotype.Component;
 
 /**
+ * The Class GenericValidator.
+ *
  * @author dsomajohassula
  * 
  *  Generic class to capture JSR-303 Validations Violations and

@@ -13,19 +13,19 @@ import javax.persistence.TemporalType;
 /**
  * @author dsomajohassula
  * 
- * The persistent class for the password database table.
+ * The persistent class for the strategic_choice database table.
  * 
  */
 @Entity
-@Table(name = "PASSWORD")
-public class PasswordEntity implements Serializable {
+@Table(name = "strategic_choice")
+public class StrategicChoiceEntity implements Serializable {
 	
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/** The id. */
 	@EmbeddedId
-	private PasswordEntityKey id;
+	private StrategicChoiceEntitykey id;
 
 	/** The create dt. */
 	@Temporal(TemporalType.TIMESTAMP)
@@ -37,13 +37,18 @@ public class PasswordEntity implements Serializable {
 	@Column(name = "LAST_UPDATE_DT")
 	private Date lastUpdateDt;
 
-	/** The password. */
-	private String password;
+	/** The strategic choice nm. */
+	@Column(name = "STRATEGIC_CHOICE_NM")
+	private String strategicChoiceNm;
+
+	/** The usr nm last upd. */
+	@Column(name = "USR_NM_LAST_UPD")
+	private String usrNmLastUpd;
 
 	/**
-	 * Instantiates a new password entity.
+	 * Instantiates a new strategic choice entity.
 	 */
-	public PasswordEntity() {
+	public StrategicChoiceEntity() {
 	}
 
 	/**
@@ -51,7 +56,7 @@ public class PasswordEntity implements Serializable {
 	 *
 	 * @return the id
 	 */
-	public PasswordEntityKey getId() {
+	public StrategicChoiceEntitykey getId() {
 		return this.id;
 	}
 
@@ -60,7 +65,7 @@ public class PasswordEntity implements Serializable {
 	 *
 	 * @param id the new id
 	 */
-	public void setId(PasswordEntityKey id) {
+	public void setId(StrategicChoiceEntitykey id) {
 		this.id = id;
 	}
 
@@ -101,21 +106,39 @@ public class PasswordEntity implements Serializable {
 	}
 
 	/**
-	 * Gets the password.
+	 * Gets the strategic choice nm.
 	 *
-	 * @return the password
+	 * @return the strategic choice nm
 	 */
-	public String getPassword() {
-		return this.password;
+	public String getStrategicChoiceNm() {
+		return this.strategicChoiceNm;
 	}
 
 	/**
-	 * Sets the password.
+	 * Sets the strategic choice nm.
 	 *
-	 * @param password the new password
+	 * @param strategicChoiceNm the new strategic choice nm
 	 */
-	public void setPassword(String password) {
-		this.password = password;
+	public void setStrategicChoiceNm(String strategicChoiceNm) {
+		this.strategicChoiceNm = strategicChoiceNm;
+	}
+
+	/**
+	 * Gets the usr nm last upd.
+	 *
+	 * @return the usr nm last upd
+	 */
+	public String getUsrNmLastUpd() {
+		return this.usrNmLastUpd;
+	}
+
+	/**
+	 * Sets the usr nm last upd.
+	 *
+	 * @param usrNmLastUpd the new usr nm last upd
+	 */
+	public void setUsrNmLastUpd(String usrNmLastUpd) {
+		this.usrNmLastUpd = usrNmLastUpd;
 	}
 
 }

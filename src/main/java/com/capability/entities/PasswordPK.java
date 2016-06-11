@@ -8,31 +8,32 @@ import javax.persistence.Embeddable;
 /**
  * @author dsomajohassula
  * 
- * The primary key class for the map database table.
+ * The primary key class for the PASSWORD database table.
  * 
  */
 @Embeddable
-public class MapEntityKey implements Serializable {
+public class PasswordPK implements Serializable {
 	
 	/** The Constant serialVersionUID. */
+	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
 	/** The map id. */
-	@Column(name="MAP_ID")
+	@Column(name="MAP_ID", insertable=false, updatable=false)
 	private String mapId;
 
 	/** The version id. */
-	@Column(name="VERSION_ID")
+	@Column(name="VERSION_ID", insertable=false, updatable=false)
 	private String versionId;
 
 	/** The sector id. */
-	@Column(name="SECTOR_ID")
+	@Column(name="SECTOR_ID", insertable=false, updatable=false)
 	private String sectorId;
 
 	/**
-	 * Instantiates a new map entity key.
+	 * Instantiates a new password pk.
 	 */
-	public MapEntityKey() {
+	public PasswordPK() {
 	}
 	
 	/**
@@ -96,10 +97,10 @@ public class MapEntityKey implements Serializable {
 		if (this == other) {
 			return true;
 		}
-		if (!(other instanceof MapEntityKey)) {
+		if (!(other instanceof PasswordPK)) {
 			return false;
 		}
-		MapEntityKey castOther = (MapEntityKey)other;
+		PasswordPK castOther = (PasswordPK)other;
 		return 
 			this.mapId.equals(castOther.mapId)
 			&& this.versionId.equals(castOther.versionId)

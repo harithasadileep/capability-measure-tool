@@ -10,5 +10,11 @@
 		<mapping class="com.capability.entities.ClusterEntity"></mapping>
 		<mapping class="com.capability.entities.CapabilityEntity"></mapping>
 		<mapping class="com.capability.entities.PasswordEntity"></mapping>
+		<mapping class="com.capability.entities.StrategicChoiceEntity"></mapping>
+		<mapping class="com.capability.entities.OverlayXrefEntity"></mapping>
+		<mapping class="com.capability.entities.MaturityDescEntity"></mapping>
+		<mapping class="com.capability.entities.DimensionSpecific"></mapping> 
+		<mapping class="com.capability.entities.DimensionXref"></mapping> 
+		 <mapping class="com.capability.entities.Element" />
 	</session-factory>
 </hibernate-configuration>

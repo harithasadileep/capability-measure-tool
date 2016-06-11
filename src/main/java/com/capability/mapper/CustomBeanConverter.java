@@ -1,4 +1,3 @@
-
 package com.capability.mapper;
 
 import javax.annotation.PostConstruct;
@@ -9,6 +8,9 @@ import org.springframework.stereotype.Component;
 
 
 /**
+ * @author dsomajohassula
+ * 
+ * The Class CustomBeanConverter.
  *
  * @author dsomajohassula
  * 
