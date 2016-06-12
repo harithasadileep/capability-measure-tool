@@ -1,0 +1,56 @@
+{
+	"capability": {
+		"capabilityId": "",
+		"mapId": "",
+		"versionId": "",
+		"sectorId": "",
+		"clusterId": "",
+		"capNotes": "",
+		"capabilityDesc": "",
+		"capabilityNm": "",
+		"capabilityPos": "",
+		"highValue": "",
+		"createDt": "",
+		"lastUpdateDt": "",
+		"truncCapabilityNm": "",
+		"usrNmLastUpd": ""
+
+	},
+	"dimensionMaturityLevelList": [{
+
+
+			"capabilityId": "",
+			"mapId": "",
+			"versionId": "",
+			"sectorId": "",
+			"dimId": "",
+			"clusterId": "",
+			"dimNotes": "",
+			"currentMaturity": "",
+			"futureMaturity": "",
+			"dimMatGap": "",
+			"capabilityCurrentMat": "",
+			"capabilityFutureMat": "",
+			"capMatGap": "",
+			"createDt": "",
+			"lastupdateDt": ""
+		}, {
+			"capabilityId": "",
+			"mapId": "",
+			"versionId": "",
+			"sectorId": "",
+			"dimId": "",
+			"clusterId": "",
+			"dimNotes": "",
+			"currentMaturity": "",
+			"futureMaturity": "",
+			"dimMatGap": "",
+			"capabilityCurrentMat": "",
+			"capabilityFutureMat": "",
+			"capMatGap": "",
+			"createDt": "",
+			"lastupdateDt": ""
+		}
+
+	]
+}

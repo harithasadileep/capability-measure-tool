@@ -13,8 +13,9 @@
 		<mapping class="com.capability.entities.StrategicChoiceEntity"></mapping>
 		<mapping class="com.capability.entities.OverlayXrefEntity"></mapping>
 		<mapping class="com.capability.entities.MaturityDescEntity"></mapping>
-		<mapping class="com.capability.entities.DimensionSpecific"></mapping> 
-		<mapping class="com.capability.entities.DimensionXref"></mapping> 
-		 <mapping class="com.capability.entities.Element" />
+		<mapping class="com.capability.entities.DimensionSpecificEntity"></mapping> 
+		<mapping class="com.capability.entities.DimensionXrefEntity"></mapping> 
+		 <mapping class="com.capability.entities.ElementEntity" />
+		 <mapping class="com.capability.entities.CapabilityMasterEntity" />
 	</session-factory>
 </hibernate-configuration>

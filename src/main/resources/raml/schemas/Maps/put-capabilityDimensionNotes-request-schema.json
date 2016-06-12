@@ -1,0 +1,143 @@
+{
+	"$schema": "http://json-schema.org/draft-03/schema",
+	"title": "IndustryMap POST Request Schema",
+	"description": "schema to POST a IndustryMap",
+	"type": "object",
+	"required": true,
+	"properties": {
+		"capabilityNote": {
+			"title": "capability",
+			"type": "object",
+			"properties": {
+				"capabilityId": {
+					"type": "string",
+					"required": true
+				},
+				"mapId": {
+					"type": "string",
+					"required": true
+				},
+				"versionId": {
+					"type": "string",
+					"required": true
+				},
+				"sectorId": {
+					"type": "string",
+					"required": true
+				},
+				"clusterId": {
+					"type": "string",
+					"required": true
+				},
+				"capNotes": {
+					"type": "string",
+					"required": true
+				},
+				"capabilityDesc": {
+					"type": "string",
+					"required": true
+				},
+				"capabilityNm": {
+					"type": "string",
+					"required": true
+				},
+				"capabilityPos": {
+					"type": "string",
+					"required": true
+				},
+				"highValue": {
+					"type": "string",
+					"required": true
+				},
+				"createDt": {
+					"type": "string",
+					"required": true
+				},
+				"lastUpdateDt": {
+					"type": "string",
+					"required": true
+				},
+				"truncCapabilityNm": {
+					"type": "string",
+					"required": true
+				},
+				"usrNmLastUpd": {
+					"type": "string",
+					"required": true
+				}
+			},
+			"additionalProperties": false
+		},
+		"dimensionMaturityNote": {
+			"type": "array",
+			"required": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"capabilityId": {
+						"type": "string",
+						"required": true
+					},
+					"mapId": {
+						"type": "string",
+						"required": true
+					},
+					"versionId": {
+						"type": "string",
+						"required": true
+					},
+					"sectorId": {
+						"type": "string",
+						"required": true
+					},
+					"dimId": {
+						"type": "string",
+						"required": true
+					},
+					"clusterId": {
+						"type": "string",
+						"required": true
+					},
+					"dimNotes": {
+						"type": "string",
+						"required": true
+					},
+					"currentMaturity": {
+						"type": "string",
+						"required": true
+					},
+					"futureMaturity": {
+						"type": "string",
+						"required": true
+					},
+					"dimMatGap": {
+						"type": "string",
+						"required": true
+					},
+					"capabilityCurrentMat": {
+						"type": "string",
+						"required": true
+					},
+					"capabilityFutureMat": {
+						"type": "string",
+						"required": true
+					},
+					"capMatGap": {
+						"type": "string",
+						"required": true
+					},
+					"createDt": {
+						"type": "string",
+						"required": true
+					},
+					"lastupdateDt": {
+						"type": "string",
+						"required": true
+					}
+				},
+				"additionalProperties": false
+			}
+		}
+	},
+	"additionalProperties": false
+}

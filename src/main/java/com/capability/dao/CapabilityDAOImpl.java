@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.capability.entities.CapabilityEntity;
+import com.capability.entities.CapabilityMasterEntity;
 import com.capability.entities.ClusterEntity;
 import com.capability.entities.MapEntity;
 import com.capability.entities.MaturityDescEntity;
@@ -31,8 +32,11 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	/* (non-Javadoc)
-	 * @see com.capability.dao.CapabilityDAO#getMaps(java.lang.String, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.capability.dao.CapabilityDAO#getMaps(java.lang.String,
+	 * java.lang.String)
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -92,8 +96,11 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 		return mapEntityList;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.dao.CapabilityDAO#getClusters(java.lang.String, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.capability.dao.CapabilityDAO#getClusters(java.lang.String,
+	 * java.lang.String)
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -114,8 +121,11 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 		return clusterEntityList;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.dao.CapabilityDAO#getCapabilities(java.lang.String, java.lang.String, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.capability.dao.CapabilityDAO#getCapabilities(java.lang.String,
+	 * java.lang.String, java.lang.String)
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -169,7 +179,9 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 		return capabilityEntityList;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.capability.dao.CapabilityDAO#getSector(java.lang.String)
 	 */
 	@Override
@@ -181,8 +193,12 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.dao.CapabilityDAO#getMapByMapNameSectorName(java.lang.String, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.capability.dao.CapabilityDAO#getMapByMapNameSectorName(java.lang.
+	 * String, java.lang.String)
 	 */
 	@Override
 	public MapEntity getMapByMapNameSectorName(String mapName, String sectorName) throws Exception {
@@ -195,8 +211,11 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 		return mapEntity;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.dao.CapabilityDAO#archiveMap(com.capability.entities.MapEntity)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.capability.dao.CapabilityDAO#archiveMap(com.capability.entities.
+	 * MapEntity)
 	 */
 	@Override
 	public boolean archiveMap(MapEntity mapEntity) throws Exception {
@@ -205,8 +224,12 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.dao.CapabilityDAO#getPasswordByMapIdSectorId(java.lang.String, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.capability.dao.CapabilityDAO#getPasswordByMapIdSectorId(java.lang.
+	 * String, java.lang.String)
 	 */
 	@Override
 	public PasswordEntity getPasswordByMapIdSectorId(String mapId, String sectorId) throws Exception {
@@ -227,8 +250,12 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 		return passwordEntity;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.dao.CapabilityDAO#getMapEntityByMapName(java.lang.String, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.capability.dao.CapabilityDAO#getMapEntityByMapName(java.lang.String,
+	 * java.lang.String)
 	 */
 	@Override
 	public MapEntity getMapEntityByMapName(String mapName, String sectorId) {
@@ -252,8 +279,11 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.dao.CapabilityDAO#getSectorIdBySectorName(java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.capability.dao.CapabilityDAO#getSectorIdBySectorName(java.lang.
+	 * String)
 	 */
 	@Override
 	public String getSectorIdBySectorName(String sectorName) {
@@ -271,8 +301,10 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 	/**
 	 * Gets the clusters by map id sector id.
 	 *
-	 * @param mapId the map id
-	 * @param sectorId the sector id
+	 * @param mapId
+	 *            the map id
+	 * @param sectorId
+	 *            the sector id
 	 * @return the clusters by map id sector id
 	 */
 	public List<ClusterEntity> getClustersByMapIdSectorId(String mapId, String sectorId) {
@@ -301,9 +333,12 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 	/**
 	 * Gets the cluster entity by map id secor id cluster name.
 	 *
-	 * @param mapId the map id
-	 * @param sectorId the sector id
-	 * @param clusterName the cluster name
+	 * @param mapId
+	 *            the map id
+	 * @param sectorId
+	 *            the sector id
+	 * @param clusterName
+	 *            the cluster name
 	 * @return the cluster entity by map id secor id cluster name
 	 */
 	public ClusterEntity getClusterEntityByMapIdSecorIdClusterName(String mapId, String sectorId, String clusterName) {
@@ -327,8 +362,12 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.dao.CapabilityDAO#getClusterByClusterId(java.lang.String, java.lang.String, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.capability.dao.CapabilityDAO#getClusterByClusterId(java.lang.String,
+	 * java.lang.String, java.lang.String)
 	 */
 	@Override
 	public ClusterEntity getClusterByClusterId(String clusterId, String mapId, String sectorId) {
@@ -353,8 +392,12 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 		return clusterEntity;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.dao.CapabilityDAO#updateCluster(com.capability.entities.ClusterEntity)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.capability.dao.CapabilityDAO#updateCluster(com.capability.entities.
+	 * ClusterEntity)
 	 */
 	@Override
 
@@ -362,9 +405,12 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 		sessionFactory.getCurrentSession().update(clusterEntity);
 		return true;
 	}
-	
-	/* (non-Javadoc)
-	 * @see com.capability.dao.CapabilityDAO#updateDimentionDesc(com.capability.entities.MaturityDescEntity)
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.capability.dao.CapabilityDAO#updateDimentionDesc(com.capability.
+	 * entities.MaturityDescEntity)
 	 */
 	@Override
 	public boolean updateDimentionDesc(MaturityDescEntity maturityDescEntity) throws Exception {
@@ -372,8 +418,12 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.dao.CapabilityDAO#getMaturityDescList(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.capability.dao.CapabilityDAO#getMaturityDescList(java.lang.String,
+	 * java.lang.String, java.lang.String, java.lang.String, java.lang.String)
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -399,8 +449,11 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 		return maturityDescEntityList;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.dao.CapabilityDAO#getCapability(java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.capability.dao.CapabilityDAO#getCapability(java.lang.String,
+	 * java.lang.String, java.lang.String, java.lang.String)
 	 */
 	@Override
 	public CapabilityEntity getCapability(String capabilityId, String mapId, String sectorId, String versionId)
@@ -424,8 +477,12 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 		return capabilityEntity;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.dao.CapabilityDAO#updateCapability(com.capability.entities.CapabilityEntity)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.capability.dao.CapabilityDAO#updateCapability(com.capability.entities
+	 * .CapabilityEntity)
 	 */
 	@Override
 	public boolean updateCapability(CapabilityEntity capabilityEntity) throws Exception {
@@ -433,16 +490,19 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.dao.CapabilityDAO#getOverlayXrefEntity(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.capability.dao.CapabilityDAO#getOverlayXrefEntity(java.lang.String,
+	 * java.lang.String, java.lang.String, java.lang.String, java.lang.String)
 	 */
 	@Override
-	public OverlayXrefEntity getOverlayXrefEntity(String mapId, String sectorId, String capabilityId, String strategicChoiceId,
-			String versionId) throws Exception {
+	public OverlayXrefEntity getOverlayXrefEntity(String mapId, String sectorId, String capabilityId,
+			String strategicChoiceId, String versionId) throws Exception {
 
 		StringBuffer buf = new StringBuffer();
-		
-		
+
 		buf.append("SELECT * FROM OVERLAY_XREF ");
 		buf.append(
 				"WHERE MAP_ID = :mapId AND SECTOR_ID = :sectorId AND VERSION_ID=:versionId AND CAPABILITY_ID=:capabilityId AND STRATEGIC_CHOICE_ID=:strategicChoiceId ");
@@ -458,8 +518,11 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 		return overlayXrefEntity;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.dao.CapabilityDAO#updateOverLatXref(com.capability.entities.OverlayXrefEntity)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.capability.dao.CapabilityDAO#updateOverLatXref(com.capability.
+	 * entities.OverlayXrefEntity)
 	 */
 	@Override
 	public boolean updateOverLatXref(OverlayXrefEntity overlayXrefEntity) throws Exception {
@@ -467,6 +530,34 @@ public class CapabilityDAOImpl implements CapabilityDAO {
 		return true;
 	}
 
-	
+	@Override
+	public CapabilityMasterEntity getCapabilityMaster(String mapId, String sectorId, String clusterId,
+			String capabilityId, String dimId, String versionId) {
+
+		StringBuffer buf = new StringBuffer();
+
+		buf.append("SELECT * FROM CAPABILITY_MASTER ");
+		buf.append(
+				"WHERE MAP_ID = :mapId AND SECTOR_ID = :sectorId AND CLUSTER_ID=:clusterId  AND CAPABILITY_ID=:capabilityId AND DIM_ID=:dimId AND VERSION_ID=:versionId ");
+		String queryString = buf.toString();
+		SQLQuery queryObject = sessionFactory.getCurrentSession().createSQLQuery(queryString);
+		queryObject.setParameter("mapId", mapId);
+		queryObject.setParameter("sectorId", sectorId);
+		queryObject.setParameter("clusterId", clusterId);
+		queryObject.setParameter("capabilityId", capabilityId);
+		queryObject.setParameter("dimId", dimId);
+		queryObject.setParameter("versionId", versionId);
+		queryObject.addEntity(CapabilityMasterEntity.class);
+		CapabilityMasterEntity capabilityMasterEntity = (CapabilityMasterEntity) queryObject.uniqueResult();
+
+		return capabilityMasterEntity;
+	}
+
+	@Override
+	public boolean updateCapabilityMaster(CapabilityMasterEntity capabilityMasterEntity) throws Exception {
+
+		sessionFactory.getCurrentSession().update(capabilityMasterEntity);
+		return true;
+	}
 
 }

@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="DIMENSION_XREF")
-public class DimensionXref implements Serializable {
+public class DimensionXrefEntity implements Serializable {
 	
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -56,12 +56,12 @@ public class DimensionXref implements Serializable {
 	/** The dimension specifics. */
 	//bi-directional many-to-one association to DimensionSpecific
 	@OneToMany(mappedBy="dimensionXref")
-	private List<DimensionSpecific> dimensionSpecifics;
+	private List<DimensionSpecificEntity> dimensionSpecifics;
 
 	/**
 	 * Instantiates a new dimension xref.
 	 */
-	public DimensionXref() {
+	public DimensionXrefEntity() {
 	}
 
 	/**
@@ -177,7 +177,7 @@ public class DimensionXref implements Serializable {
 	 *
 	 * @return the dimension specifics
 	 */
-	public List<DimensionSpecific> getDimensionSpecifics() {
+	public List<DimensionSpecificEntity> getDimensionSpecifics() {
 		return this.dimensionSpecifics;
 	}
 
@@ -186,7 +186,7 @@ public class DimensionXref implements Serializable {
 	 *
 	 * @param dimensionSpecifics the new dimension specifics
 	 */
-	public void setDimensionSpecifics(List<DimensionSpecific> dimensionSpecifics) {
+	public void setDimensionSpecifics(List<DimensionSpecificEntity> dimensionSpecifics) {
 		this.dimensionSpecifics = dimensionSpecifics;
 	}
 
@@ -196,7 +196,7 @@ public class DimensionXref implements Serializable {
 	 * @param dimensionSpecific the dimension specific
 	 * @return the dimension specific
 	 */
-	public DimensionSpecific addDimensionSpecific(DimensionSpecific dimensionSpecific) {
+	public DimensionSpecificEntity addDimensionSpecific(DimensionSpecificEntity dimensionSpecific) {
 		getDimensionSpecifics().add(dimensionSpecific);
 		dimensionSpecific.setDimensionXref(this);
 
@@ -209,7 +209,7 @@ public class DimensionXref implements Serializable {
 	 * @param dimensionSpecific the dimension specific
 	 * @return the dimension specific
 	 */
-	public DimensionSpecific removeDimensionSpecific(DimensionSpecific dimensionSpecific) {
+	public DimensionSpecificEntity removeDimensionSpecific(DimensionSpecificEntity dimensionSpecific) {
 		getDimensionSpecifics().remove(dimensionSpecific);
 		dimensionSpecific.setDimensionXref(null);
 

@@ -23,14 +23,14 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="DIMENSION_SPECIFIC")
-public class DimensionSpecific implements Serializable {
+public class DimensionSpecificEntity implements Serializable {
 	
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/** The id. */
 	@EmbeddedId
-	private DimensionSpecificPK id;
+	private DimensionSpecificEntityKey id;
 
 	/** The create dt. */
 	@Temporal(TemporalType.TIMESTAMP)
@@ -54,12 +54,12 @@ public class DimensionSpecific implements Serializable {
 	//bi-directional many-to-one association to DimensionXref
 	@ManyToOne
 	@JoinColumn(name="DIM_ID",insertable=false, updatable=false)
-	private DimensionXref dimensionXref;
+	private DimensionXrefEntity dimensionXref;
 
 	/** The elements. */
 	//bi-directional many-to-one association to Element
 	@OneToMany(mappedBy="dimensionSpecific")
-	private List<Element> elements;
+	private List<ElementEntity> elements;
 
 	/** The maturity descs. */
 	//bi-directional many-to-one association to MaturityDesc
@@ -69,7 +69,7 @@ public class DimensionSpecific implements Serializable {
 	/**
 	 * Instantiates a new dimension specific.
 	 */
-	public DimensionSpecific() {
+	public DimensionSpecificEntity() {
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class DimensionSpecific implements Serializable {
 	 *
 	 * @return the id
 	 */
-	public DimensionSpecificPK getId() {
+	public DimensionSpecificEntityKey getId() {
 		return this.id;
 	}
 
@@ -86,7 +86,7 @@ public class DimensionSpecific implements Serializable {
 	 *
 	 * @param id the new id
 	 */
-	public void setId(DimensionSpecificPK id) {
+	public void setId(DimensionSpecificEntityKey id) {
 		this.id = id;
 	}
 
@@ -167,7 +167,7 @@ public class DimensionSpecific implements Serializable {
 	 *
 	 * @return the dimension xref
 	 */
-	public DimensionXref getDimensionXref() {
+	public DimensionXrefEntity getDimensionXref() {
 		return this.dimensionXref;
 	}
 
@@ -176,7 +176,7 @@ public class DimensionSpecific implements Serializable {
 	 *
 	 * @param dimensionXref the new dimension xref
 	 */
-	public void setDimensionXref(DimensionXref dimensionXref) {
+	public void setDimensionXref(DimensionXrefEntity dimensionXref) {
 		this.dimensionXref = dimensionXref;
 	}
 
@@ -185,7 +185,7 @@ public class DimensionSpecific implements Serializable {
 	 *
 	 * @return the elements
 	 */
-	public List<Element> getElements() {
+	public List<ElementEntity> getElements() {
 		return this.elements;
 	}
 
@@ -194,7 +194,7 @@ public class DimensionSpecific implements Serializable {
 	 *
 	 * @param elements the new elements
 	 */
-	public void setElements(List<Element> elements) {
+	public void setElements(List<ElementEntity> elements) {
 		this.elements = elements;
 	}
 
@@ -204,7 +204,7 @@ public class DimensionSpecific implements Serializable {
 	 * @param element the element
 	 * @return the element
 	 */
-	public Element addElement(Element element) {
+	public ElementEntity addElement(ElementEntity element) {
 		getElements().add(element);
 		element.setDimensionSpecific(this);
 
@@ -217,7 +217,7 @@ public class DimensionSpecific implements Serializable {
 	 * @param element the element
 	 * @return the element
 	 */
-	public Element removeElement(Element element) {
+	public ElementEntity removeElement(ElementEntity element) {
 		getElements().remove(element);
 		element.setDimensionSpecific(null);
 

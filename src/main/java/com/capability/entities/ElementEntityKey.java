@@ -8,19 +8,15 @@ import javax.persistence.Embeddable;
 /**
  * @author dsomajohassula
  * 
- * The primary key class for the OVERLAY_XREF database table.
+ * The primary key class for the ELEMENT database table.
  * 
  */
 @Embeddable
-public class OverlayXrefPK implements Serializable {
+public class ElementEntityKey implements Serializable {
 	
 	/** The Constant serialVersionUID. */
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
-
-	/** The strategic choice id. */
-	@Column(name="STRATEGIC_CHOICE_ID", insertable=false, updatable=false)
-	private String strategicChoiceId;
 
 	/** The capability id. */
 	@Column(name="CAPABILITY_ID", insertable=false, updatable=false)
@@ -38,28 +34,18 @@ public class OverlayXrefPK implements Serializable {
 	@Column(name="SECTOR_ID", insertable=false, updatable=false)
 	private String sectorId;
 
+	/** The dim id. */
+	@Column(name="DIM_ID", insertable=false, updatable=false)
+	private String dimId;
+
+	/** The element id. */
+	@Column(name="ELEMENT_ID")
+	private String elementId;
+
 	/**
-	 * Instantiates a new overlay xref pk.
+	 * Instantiates a new element pk.
 	 */
-	public OverlayXrefPK() {
-	}
-	
-	/**
-	 * Gets the strategic choice id.
-	 *
-	 * @return the strategic choice id
-	 */
-	public String getStrategicChoiceId() {
-		return this.strategicChoiceId;
-	}
-	
-	/**
-	 * Sets the strategic choice id.
-	 *
-	 * @param strategicChoiceId the new strategic choice id
-	 */
-	public void setStrategicChoiceId(String strategicChoiceId) {
-		this.strategicChoiceId = strategicChoiceId;
+	public ElementEntityKey() {
 	}
 	
 	/**
@@ -133,6 +119,42 @@ public class OverlayXrefPK implements Serializable {
 	public void setSectorId(String sectorId) {
 		this.sectorId = sectorId;
 	}
+	
+	/**
+	 * Gets the dim id.
+	 *
+	 * @return the dim id
+	 */
+	public String getDimId() {
+		return this.dimId;
+	}
+	
+	/**
+	 * Sets the dim id.
+	 *
+	 * @param dimId the new dim id
+	 */
+	public void setDimId(String dimId) {
+		this.dimId = dimId;
+	}
+	
+	/**
+	 * Gets the element id.
+	 *
+	 * @return the element id
+	 */
+	public String getElementId() {
+		return this.elementId;
+	}
+	
+	/**
+	 * Sets the element id.
+	 *
+	 * @param elementId the new element id
+	 */
+	public void setElementId(String elementId) {
+		this.elementId = elementId;
+	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
@@ -141,16 +163,17 @@ public class OverlayXrefPK implements Serializable {
 		if (this == other) {
 			return true;
 		}
-		if (!(other instanceof OverlayXrefPK)) {
+		if (!(other instanceof ElementEntityKey)) {
 			return false;
 		}
-		OverlayXrefPK castOther = (OverlayXrefPK)other;
+		ElementEntityKey castOther = (ElementEntityKey)other;
 		return 
-			this.strategicChoiceId.equals(castOther.strategicChoiceId)
-			&& this.capabilityId.equals(castOther.capabilityId)
+			this.capabilityId.equals(castOther.capabilityId)
 			&& this.mapId.equals(castOther.mapId)
 			&& this.versionId.equals(castOther.versionId)
-			&& this.sectorId.equals(castOther.sectorId);
+			&& this.sectorId.equals(castOther.sectorId)
+			&& this.dimId.equals(castOther.dimId)
+			&& this.elementId.equals(castOther.elementId);
 	}
 
 	/* (non-Javadoc)
@@ -159,11 +182,12 @@ public class OverlayXrefPK implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int hash = 17;
-		hash = hash * prime + this.strategicChoiceId.hashCode();
 		hash = hash * prime + this.capabilityId.hashCode();
 		hash = hash * prime + this.mapId.hashCode();
 		hash = hash * prime + this.versionId.hashCode();
 		hash = hash * prime + this.sectorId.hashCode();
+		hash = hash * prime + this.dimId.hashCode();
+		hash = hash * prime + this.elementId.hashCode();
 		
 		return hash;
 	}

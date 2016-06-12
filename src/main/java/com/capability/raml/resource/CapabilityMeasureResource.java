@@ -15,6 +15,7 @@ import com.capability.raml.model.GetClusterViewResponse;
 import com.capability.raml.model.GetMapViewResponse;
 import com.capability.raml.model.GetMapsResponse;
 import com.capability.raml.model.PutCapabilityDetails;
+import com.capability.raml.model.PutCapabilityDimensionNotes;
 import com.capability.raml.model.PutClusterListResponse;
 import com.capability.raml.model.PutClustrList;
 import com.capability.raml.model.PutMapsResponse;
@@ -126,9 +127,9 @@ public interface CapabilityMeasureResource {
      * 
      * 
      * @param entity
-     *      e.g. {
-     *       "result" : "success",
-     *       "key" : "unique key of the CapabilityMap"
+     *      e.g. {
+     *       "result" : "success",
+     *       "key" : "unique key of the CapabilityMap"
      *     }
      */
     @POST
@@ -146,9 +147,61 @@ public interface CapabilityMeasureResource {
      * 
      * 
      * @param entity
-     *      e.g. {
-     *       "result" : "success",
-     *       "key" : "unique key of the CapabilityMap"
+     *      e.g. {
+     *     	"capability": {
+     *     		"capabilityId": "",
+     *     		"mapId": "",
+     *     		"versionId": "",
+     *     		"sectorId": "",
+     *     		"clusterId": "",
+     *     		"capNotes": "",
+     *     		"capabilityDesc": "",
+     *     		"capabilityNm": "",
+     *     		"capabilityPos": "",
+     *     		"highValue": "",
+     *     		"createDt": "",
+     *     		"lastUpdateDt": "",
+     *     		"truncCapabilityNm": "",
+     *     		"usrNmLastUpd": ""
+     *     
+     *     	},
+     *     	"dimensionMaturityLevelList": [{
+     *     
+     *     
+     *     			"capabilityId": "",
+     *     			"mapId": "",
+     *     			"versionId": "",
+     *     			"sectorId": "",
+     *     			"dimId": "",
+     *     			"clusterId": "",
+     *     			"dimNotes": "",
+     *     			"currentMaturity": "",
+     *     			"futureMaturity": "",
+     *     			"dimMatGap": "",
+     *     			"capabilityCurrentMat": "",
+     *     			"capabilityFutureMat": "",
+     *     			"capMatGap": "",
+     *     			"createDt": "",
+     *     			"lastupdateDt": ""
+     *     		}, {
+     *     			"capabilityId": "",
+     *     			"mapId": "",
+     *     			"versionId": "",
+     *     			"sectorId": "",
+     *     			"dimId": "",
+     *     			"clusterId": "",
+     *     			"dimNotes": "",
+     *     			"currentMaturity": "",
+     *     			"futureMaturity": "",
+     *     			"dimMatGap": "",
+     *     			"capabilityCurrentMat": "",
+     *     			"capabilityFutureMat": "",
+     *     			"capMatGap": "",
+     *     			"createDt": "",
+     *     			"lastupdateDt": ""
+     *     		}
+     *     
+     *     	]
      *     }
      */
     @POST
@@ -158,6 +211,26 @@ public interface CapabilityMeasureResource {
         "application/json"
     })
     CapabilityMeasureResource.PostCapabilityMeasureCapabilityDetailsUpdateResponse postCapabilityMeasureCapabilityDetailsUpdate(PutCapabilityDetails entity)
+        throws Exception
+    ;
+
+    /**
+     * Create a new resource
+     * 
+     * 
+     * @param entity
+     *      e.g. {
+     *       "result" : "success",
+     *       "key" : "unique key of the CapabilityMap"
+     *     }
+     */
+    @POST
+    @Path("CapabilityDimensionNote")
+    @Consumes("application/json")
+    @Produces({
+        "application/json"
+    })
+    CapabilityMeasureResource.PostCapabilityMeasureCapabilityDimensionNoteResponse postCapabilityMeasureCapabilityDimensionNote(PutCapabilityDimensionNotes entity)
         throws Exception
     ;
 
@@ -384,15 +457,15 @@ public interface CapabilityMeasureResource {
         }
 
         /**
-         * successfull archive e.g. {
-         *   "result" : "success",
-         *   "key" : "unique key of the CapabilityMap"
+         * successfull archive e.g. {
+         *   "result" : "success",
+         *   "key" : "unique key of the CapabilityMap"
          * }
          * 
          * @param entity
-         *     {
-         *       "result" : "success",
-         *       "key" : "unique key of the CapabilityMap"
+         *     {
+         *       "result" : "success",
+         *       "key" : "unique key of the CapabilityMap"
          *     }
          */
         public static CapabilityMeasureResource.PostCapabilityMeasureArchiveByMapNameBySectorNameResponse withJsonOK(PutMapsResponse entity) {
@@ -437,15 +510,15 @@ public interface CapabilityMeasureResource {
         }
 
         /**
-         * Succesfully updated a new resource e.g. {
-         *   "result" : "success",
-         *   "key" : "unique key of the CapabilityMap"
+         * Succesfully updated a new resource e.g. {
+         *   "result" : "success",
+         *   "key" : "unique key of the CapabilityMap"
          * }
          * 
          * @param entity
-         *     {
-         *       "result" : "success",
-         *       "key" : "unique key of the CapabilityMap"
+         *     {
+         *       "result" : "success",
+         *       "key" : "unique key of the CapabilityMap"
          *     }
          */
         public static CapabilityMeasureResource.PostCapabilityMeasureCapabilityDetailsUpdateResponse withJsonOK(PutMapsResponse entity) {
@@ -492,6 +565,61 @@ public interface CapabilityMeasureResource {
 
     }
 
+    public class PostCapabilityMeasureCapabilityDimensionNoteResponse
+        extends com.capability.raml.support.ResponseWrapper
+    {
+
+
+        private PostCapabilityMeasureCapabilityDimensionNoteResponse(Response delegate) {
+            super(delegate);
+        }
+
+        /**
+         * 
+         * @param entity
+         *     
+         */
+        public static CapabilityMeasureResource.PostCapabilityMeasureCapabilityDimensionNoteResponse withJsonOK(PutMapsResponse entity) {
+            Response.ResponseBuilder responseBuilder = Response.status(200).header("Content-Type", "application/json");
+            responseBuilder.entity(entity);
+            return new CapabilityMeasureResource.PostCapabilityMeasureCapabilityDimensionNoteResponse(responseBuilder.build());
+        }
+
+        /**
+         * 
+         * @param entity
+         *     
+         */
+        public static CapabilityMeasureResource.PostCapabilityMeasureCapabilityDimensionNoteResponse withJsonNotFound(ExceptionMessage entity) {
+            Response.ResponseBuilder responseBuilder = Response.status(404).header("Content-Type", "application/json");
+            responseBuilder.entity(entity);
+            return new CapabilityMeasureResource.PostCapabilityMeasureCapabilityDimensionNoteResponse(responseBuilder.build());
+        }
+
+        /**
+         * 
+         * @param entity
+         *     
+         */
+        public static CapabilityMeasureResource.PostCapabilityMeasureCapabilityDimensionNoteResponse withJsonInternalServerError(ExceptionMessage entity) {
+            Response.ResponseBuilder responseBuilder = Response.status(500).header("Content-Type", "application/json");
+            responseBuilder.entity(entity);
+            return new CapabilityMeasureResource.PostCapabilityMeasureCapabilityDimensionNoteResponse(responseBuilder.build());
+        }
+
+        /**
+         * 
+         * @param entity
+         *     
+         */
+        public static CapabilityMeasureResource.PostCapabilityMeasureCapabilityDimensionNoteResponse withJsonConflict(ExceptionMessage entity) {
+            Response.ResponseBuilder responseBuilder = Response.status(409).header("Content-Type", "application/json");
+            responseBuilder.entity(entity);
+            return new CapabilityMeasureResource.PostCapabilityMeasureCapabilityDimensionNoteResponse(responseBuilder.build());
+        }
+
+    }
+
     public class PostCapabilityMeasureClusterResponse
         extends com.capability.raml.support.ResponseWrapper
     {
@@ -503,15 +631,15 @@ public interface CapabilityMeasureResource {
 
         /**
          * Succesfully updated a new resource
-         *  e.g. {
-         *   "result" : "success",
-         *   "key" : "unique key of the CapabilityMap"
+         *  e.g. {
+         *   "result" : "success",
+         *   "key" : "unique key of the CapabilityMap"
          * }
          * 
          * @param entity
-         *     {
-         *       "result" : "success",
-         *       "key" : "unique key of the CapabilityMap"
+         *     {
+         *       "result" : "success",
+         *       "key" : "unique key of the CapabilityMap"
          *     }
          */
         public static CapabilityMeasureResource.PostCapabilityMeasureClusterResponse withJsonOK(PutClusterListResponse entity) {

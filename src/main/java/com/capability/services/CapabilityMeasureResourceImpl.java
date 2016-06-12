@@ -14,6 +14,7 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import com.capability.dao.CapabilityDAO;
 import com.capability.entities.CapabilityEntity;
+import com.capability.entities.CapabilityMasterEntity;
 import com.capability.entities.ClusterEntity;
 import com.capability.entities.MapEntity;
 import com.capability.entities.MaturityDescEntity;
@@ -25,10 +26,12 @@ import com.capability.mapper.DozerHelper;
 import com.capability.mapper.GenericValidator;
 import com.capability.raml.model.Capability;
 import com.capability.raml.model.CapabilityMaturity;
+import com.capability.raml.model.CapabilityNote;
 import com.capability.raml.model.Cause;
 import com.capability.raml.model.Cluster;
 import com.capability.raml.model.ClusterView;
 import com.capability.raml.model.DimensionMaturity;
+import com.capability.raml.model.DimensionMaturityNote;
 import com.capability.raml.model.ExceptionMessage;
 import com.capability.raml.model.ExceptionObject;
 import com.capability.raml.model.ExceptionObject.HttpCode;
@@ -39,6 +42,7 @@ import com.capability.raml.model.Map;
 import com.capability.raml.model.MapView;
 import com.capability.raml.model.OverLayXRef;
 import com.capability.raml.model.PutCapabilityDetails;
+import com.capability.raml.model.PutCapabilityDimensionNotes;
 import com.capability.raml.model.PutClusterListResponse;
 import com.capability.raml.model.PutClustrList;
 import com.capability.raml.model.PutMapsResponse;
@@ -62,8 +66,12 @@ public class CapabilityMeasureResourceImpl implements CapabilityMeasureResource 
 	@Autowired
 	private CustomBeanConverter customBeanConverter;
 
-	/* (non-Javadoc)
-	 * @see com.capability.raml.resource.CapabilityMeasureResource#getCapabilityMeasureMapViewByMapNameBySectorName(java.lang.String, java.lang.String, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.capability.raml.resource.CapabilityMeasureResource#
+	 * getCapabilityMeasureMapViewByMapNameBySectorName(java.lang.String,
+	 * java.lang.String, java.lang.String)
 	 */
 	@Override
 	@Transactional
@@ -124,8 +132,11 @@ public class CapabilityMeasureResourceImpl implements CapabilityMeasureResource 
 
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.raml.resource.CapabilityMeasureResource#getCapabilityMeasureMaps(java.lang.String, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.capability.raml.resource.CapabilityMeasureResource#
+	 * getCapabilityMeasureMaps(java.lang.String, java.lang.String)
 	 */
 	@Override
 	@Transactional
@@ -176,8 +187,12 @@ public class CapabilityMeasureResourceImpl implements CapabilityMeasureResource 
 		return GetCapabilityMeasureMapsResponse.withJsonOK(getMapsResponse);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.raml.resource.CapabilityMeasureResource#getCapabilityMeasureClusterViewByMapNameBySectorNameByClusterName(java.lang.String, java.lang.String, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.capability.raml.resource.CapabilityMeasureResource#
+	 * getCapabilityMeasureClusterViewByMapNameBySectorNameByClusterName(java.
+	 * lang.String, java.lang.String, java.lang.String)
 	 */
 	@Override
 	@Transactional
@@ -222,11 +237,16 @@ public class CapabilityMeasureResourceImpl implements CapabilityMeasureResource 
 	/**
 	 * Creates the exception message.
 	 *
-	 * @param exception the exception
-	 * @param errorMessageMap the error message map
-	 * @param httpCode the http code
-	 * @param coRelationId the co relation id
-	 * @param message the message
+	 * @param exception
+	 *            the exception
+	 * @param errorMessageMap
+	 *            the error message map
+	 * @param httpCode
+	 *            the http code
+	 * @param coRelationId
+	 *            the co relation id
+	 * @param message
+	 *            the message
 	 * @return the exception message
 	 */
 	private ExceptionMessage createExceptionMessage(Exception exception, java.util.Map<String, String> errorMessageMap,
@@ -265,8 +285,12 @@ public class CapabilityMeasureResourceImpl implements CapabilityMeasureResource 
 		return exceptionMessage;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.raml.resource.CapabilityMeasureResource#postCapabilityMeasureArchiveByMapNameBySectorName(java.lang.String, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.capability.raml.resource.CapabilityMeasureResource#
+	 * postCapabilityMeasureArchiveByMapNameBySectorName(java.lang.String,
+	 * java.lang.String)
 	 */
 	@Override
 	@Transactional
@@ -298,8 +322,11 @@ public class CapabilityMeasureResourceImpl implements CapabilityMeasureResource 
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.raml.resource.CapabilityMeasureResource#postCapabilityMeasureCluster(com.capability.raml.model.PutClustrList)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.capability.raml.resource.CapabilityMeasureResource#
+	 * postCapabilityMeasureCluster(com.capability.raml.model.PutClustrList)
 	 */
 	@Override
 	@Transactional(rollbackFor = RuntimeException.class)
@@ -364,8 +391,12 @@ public class CapabilityMeasureResourceImpl implements CapabilityMeasureResource 
 
 	}
 
-	/* (non-Javadoc)
-	 * @see com.capability.raml.resource.CapabilityMeasureResource#postCapabilityMeasureCapabilityDetailsUpdate(com.capability.raml.model.PutCapabilityDetails)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.capability.raml.resource.CapabilityMeasureResource#
+	 * postCapabilityMeasureCapabilityDetailsUpdate(com.capability.raml.model.
+	 * PutCapabilityDetails)
 	 */
 	@Override
 	@Transactional(isolation = Isolation.READ_COMMITTED)
@@ -401,12 +432,11 @@ public class CapabilityMeasureResourceImpl implements CapabilityMeasureResource 
 					capabilityEntity.setCapabilityDesc(capabilityDesc);
 					capabilityDAO.updateCapability(capabilityEntity);
 				} else {
-					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 					ExceptionMessage exMessage = new ExceptionMessage();
 					ExceptionObject obj = new ExceptionObject();
 					obj.setHttpCode(HttpCode._404);
-					obj.setMessage("Capability Not Found with given criteria : capabilityId- " + capabilityId + " , mapId- "
-							+ mapId + " , sectorId- " + sectorId+ " , versionId- " + versionId);
+					obj.setMessage("Capability Not Found with given criteria : capabilityId- " + capabilityId
+							+ " , mapId- " + mapId + " , sectorId- " + sectorId + " , versionId- " + versionId);
 					exMessage.setExceptionObject(obj);
 					return PostCapabilityMeasureCapabilityDetailsUpdateResponse.withJsonNotFound(exMessage);
 				}
@@ -418,13 +448,14 @@ public class CapabilityMeasureResourceImpl implements CapabilityMeasureResource 
 					overlayXrefEntity.setStrategicPriority(strategicPriority);
 					overlayXrefEntity.setScope(scope);
 					capabilityDAO.updateOverLatXref(overlayXrefEntity);
-				}else {
+				} else {
 					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 					ExceptionMessage exMessage = new ExceptionMessage();
 					ExceptionObject obj = new ExceptionObject();
 					obj.setHttpCode(HttpCode._404);
-					obj.setMessage("OverlayXref Not Found with given criteria : capabilityId- " + capabilityId + " , mapId- "
-							+ mapId + " , sectorId- " + sectorId+ " , versionId- " + versionId+ " , strategicChoiceId- " + strategicChoiceId);
+					obj.setMessage("OverlayXref Not Found with given criteria : capabilityId- " + capabilityId
+							+ " , mapId- " + mapId + " , sectorId- " + sectorId + " , versionId- " + versionId
+							+ " , strategicChoiceId- " + strategicChoiceId);
 					exMessage.setExceptionObject(obj);
 					return PostCapabilityMeasureCapabilityDetailsUpdateResponse.withJsonNotFound(exMessage);
 				}
@@ -473,5 +504,76 @@ public class CapabilityMeasureResourceImpl implements CapabilityMeasureResource 
 		PutMapsResponse response = new PutMapsResponse();
 		response.setResult("Successfully Updated");
 		return PostCapabilityMeasureCapabilityDetailsUpdateResponse.withJsonOK(response);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.capability.raml.resource.CapabilityMeasureResource#postCapabilityMeasureCapabilityDimensionNote(com.capability.raml.model.PutCapabilityDimensionNotes)
+	 */
+	@Override
+	@Transactional
+	public PostCapabilityMeasureCapabilityDimensionNoteResponse postCapabilityMeasureCapabilityDimensionNote(
+			PutCapabilityDimensionNotes putCapabilityDimensionNotes) throws Exception {
+		CapabilityNote capabilityNote = putCapabilityDimensionNotes.getCapabilityNote();
+		List<DimensionMaturityNote> dimensionMaturityNoteList = putCapabilityDimensionNotes.getDimensionMaturityNote();
+		String mapId = capabilityNote.getMapId();
+		String sectorId = capabilityNote.getSectorId();
+		String capabilityId = capabilityNote.getCapabilityId();
+		String versionId = capabilityNote.getVersionId();
+		String capNotes = capabilityNote.getCapNotes();
+		if (capabilityNote != null && capabilityNote.getCapabilityId() != null && capabilityNote.getMapId() != null
+				&& capabilityNote.getSectorId() != null && capabilityNote.getVersionId() != null) {
+			try {
+				if (capNotes != null) {
+					CapabilityEntity capabilityEntity = capabilityDAO.getCapability(capabilityId, mapId, sectorId,
+							versionId);
+					if (capabilityEntity != null) {
+						capabilityEntity.setCapNotes(capNotes);
+						capabilityDAO.updateCapability(capabilityEntity);
+					} else {
+						ExceptionMessage exMessage = new ExceptionMessage();
+						ExceptionObject obj = new ExceptionObject();
+						obj.setHttpCode(HttpCode._404);
+						obj.setMessage("Capability Not Found with given criteria : capabilityId- " + capabilityId
+								+ " , mapId- " + mapId + " , sectorId- " + sectorId + " , versionId- " + versionId);
+						exMessage.setExceptionObject(obj);
+						return PostCapabilityMeasureCapabilityDimensionNoteResponse.withJsonNotFound(exMessage);
+					}
+				}
+				if (dimensionMaturityNoteList != null && dimensionMaturityNoteList.size() > 0) {
+					for (DimensionMaturityNote dimensionMaturityNote : dimensionMaturityNoteList) {
+						if (dimensionMaturityNote.getDimNotes() != null) {
+							String clusterId = dimensionMaturityNote.getClusterId();
+							String dimId = dimensionMaturityNote.getDimId();
+							String dimNotes = dimensionMaturityNote.getDimNotes();
+							CapabilityMasterEntity capabilityMasterEntity = capabilityDAO.getCapabilityMaster(mapId,
+									sectorId, clusterId, capabilityId, dimId, versionId);
+							if (capabilityMasterEntity != null) {
+								capabilityMasterEntity.setDimensionNotes(dimNotes);
+								capabilityDAO.updateCapabilityMaster(capabilityMasterEntity);
+							} else {
+								ExceptionMessage exMessage = new ExceptionMessage();
+								ExceptionObject obj = new ExceptionObject();
+								obj.setHttpCode(HttpCode._404);
+								obj.setMessage(
+										"CapabilityMaster Not Found with given criteria : capabilityId- " + capabilityId
+												+ " , mapId- " + mapId + " , sectorId- " + sectorId + " , clusterId- "
+												+ clusterId + " , dimId- " + dimId + " , versionId- " + versionId);
+								exMessage.setExceptionObject(obj);
+								return PostCapabilityMeasureCapabilityDimensionNoteResponse.withJsonNotFound(exMessage);
+							}
+						}
+					}
+				}
+			} catch (Exception ex) {
+				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+				ExceptionMessage exceptionMessage = createExceptionMessage(ex, null, HttpCode._500, "coRelationId",
+						"Internal server problem");
+				return PostCapabilityMeasureCapabilityDimensionNoteResponse.withJsonNotFound(exceptionMessage);
+			}
+		}
+		PutMapsResponse response = new PutMapsResponse();
+		response.setResult("Capability Notes & Dimension Notes updated successfully");
+		response.setKey(mapId + " " + sectorId + " " + capabilityId);
+		return PostCapabilityMeasureCapabilityDimensionNoteResponse.withJsonOK(response);
 	}
 }

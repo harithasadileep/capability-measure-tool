@@ -66,7 +66,7 @@ public class MaturityDescEntity implements Serializable {
 		@JoinColumn(name="SECTOR_ID", referencedColumnName="SECTOR_ID",insertable=false, updatable=false),
 		@JoinColumn(name="VERSION_ID", referencedColumnName="VERSION_ID",insertable=false, updatable=false)
 		})
-	private DimensionSpecific dimensionSpecific;
+	private DimensionSpecificEntity dimensionSpecific;
 	
 
 	/**
@@ -206,7 +206,7 @@ public class MaturityDescEntity implements Serializable {
 	 *
 	 * @return the dimension specific
 	 */
-	public DimensionSpecific getDimensionSpecific() {
+	public DimensionSpecificEntity getDimensionSpecific() {
 		return this.dimensionSpecific;
 	}
 
@@ -215,7 +215,7 @@ public class MaturityDescEntity implements Serializable {
 	 *
 	 * @param dimensionSpecific the new dimension specific
 	 */
-	public void setDimensionSpecific(DimensionSpecific dimensionSpecific) {
+	public void setDimensionSpecific(DimensionSpecificEntity dimensionSpecific) {
 		this.dimensionSpecific = dimensionSpecific;
 	}
 

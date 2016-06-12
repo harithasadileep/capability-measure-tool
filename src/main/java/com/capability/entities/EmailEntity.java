@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="EMAIL")
 @NamedQuery(name="Email.findAll", query="SELECT e FROM Email e")
-public class Email implements Serializable {
+public class EmailEntity implements Serializable {
 	
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -33,7 +33,7 @@ public class Email implements Serializable {
 	/**
 	 * Instantiates a new email.
 	 */
-	public Email() {
+	public EmailEntity() {
 	}
 
 	/**

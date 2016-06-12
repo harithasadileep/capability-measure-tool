@@ -22,14 +22,14 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="ELEMENT")
-public class Element implements Serializable {
+public class ElementEntity implements Serializable {
 	
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/** The id. */
 	@EmbeddedId
-	private ElementPK id;
+	private ElementEntityKey id;
 
 	/** The create dt. */
 	@Temporal(TemporalType.TIMESTAMP)
@@ -63,12 +63,12 @@ public class Element implements Serializable {
 			@JoinColumn(name="SECTOR_ID", referencedColumnName="SECTOR_ID",insertable=false, updatable=false),
 			@JoinColumn(name="VERSION_ID", referencedColumnName="VERSION_ID",insertable=false, updatable=false)
 			})
-		private DimensionSpecific dimensionSpecific;
+		private DimensionSpecificEntity dimensionSpecific;
 
 	/**
 	 * Instantiates a new element.
 	 */
-	public Element() {
+	public ElementEntity() {
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class Element implements Serializable {
 	 *
 	 * @return the id
 	 */
-	public ElementPK getId() {
+	public ElementEntityKey getId() {
 		return this.id;
 	}
 
@@ -85,7 +85,7 @@ public class Element implements Serializable {
 	 *
 	 * @param id the new id
 	 */
-	public void setId(ElementPK id) {
+	public void setId(ElementEntityKey id) {
 		this.id = id;
 	}
 
@@ -184,7 +184,7 @@ public class Element implements Serializable {
 	 *
 	 * @return the dimension specific
 	 */
-	public DimensionSpecific getDimensionSpecific() {
+	public DimensionSpecificEntity getDimensionSpecific() {
 		return this.dimensionSpecific;
 	}
 
@@ -193,7 +193,7 @@ public class Element implements Serializable {
 	 *
 	 * @param dimensionSpecific the new dimension specific
 	 */
-	public void setDimensionSpecific(DimensionSpecific dimensionSpecific) {
+	public void setDimensionSpecific(DimensionSpecificEntity dimensionSpecific) {
 		this.dimensionSpecific = dimensionSpecific;
 	}
 

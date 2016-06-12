@@ -8,32 +8,58 @@ import javax.persistence.Embeddable;
 /**
  * @author dsomajohassula
  * 
- * The primary key class for the PASSWORD database table.
+ * The primary key class for the DIMENSION_SPECIFIC database table.
  * 
  */
 @Embeddable
-public class PasswordPK implements Serializable {
+public class DimensionSpecificEntityKey implements Serializable {
 	
 	/** The Constant serialVersionUID. */
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
+	/** The capability id. */
+	@Column(name="CAPABILITY_ID")
+	private String capabilityId;
+
 	/** The map id. */
-	@Column(name="MAP_ID", insertable=false, updatable=false)
+	@Column(name="MAP_ID")
 	private String mapId;
 
 	/** The version id. */
-	@Column(name="VERSION_ID", insertable=false, updatable=false)
+	@Column(name="VERSION_ID")
 	private String versionId;
 
 	/** The sector id. */
-	@Column(name="SECTOR_ID", insertable=false, updatable=false)
+	@Column(name="SECTOR_ID")
 	private String sectorId;
 
+	/** The dim id. */
+	@Column(name="DIM_ID")
+	private String dimId;
+
 	/**
-	 * Instantiates a new password pk.
+	 * Instantiates a new dimension specific pk.
 	 */
-	public PasswordPK() {
+	public DimensionSpecificEntityKey() {
+	}
+	
+	/**
+	 * Gets the capability id.
+	 *
+	 * @return the capability id
+	 */
+	public String getCapabilityId() {
+		return this.capabilityId;
+	}
+	
+	/**
+	 * Sets the capability id.
+	 *
+	 * @param capabilityId the new capability id
+	 */
+	public void setCapabilityId(String capabilityId) {
+		this.capabilityId = capabilityId;
 	}
 	
 	/**
@@ -89,6 +115,24 @@ public class PasswordPK implements Serializable {
 	public void setSectorId(String sectorId) {
 		this.sectorId = sectorId;
 	}
+	
+	/**
+	 * Gets the dim id.
+	 *
+	 * @return the dim id
+	 */
+	public String getDimId() {
+		return this.dimId;
+	}
+	
+	/**
+	 * Sets the dim id.
+	 *
+	 * @param dimId the new dim id
+	 */
+	public void setDimId(String dimId) {
+		this.dimId = dimId;
+	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
@@ -97,14 +141,16 @@ public class PasswordPK implements Serializable {
 		if (this == other) {
 			return true;
 		}
-		if (!(other instanceof PasswordPK)) {
+		if (!(other instanceof DimensionSpecificEntityKey)) {
 			return false;
 		}
-		PasswordPK castOther = (PasswordPK)other;
+		DimensionSpecificEntityKey castOther = (DimensionSpecificEntityKey)other;
 		return 
-			this.mapId.equals(castOther.mapId)
+			this.capabilityId.equals(castOther.capabilityId)
+			&& this.mapId.equals(castOther.mapId)
 			&& this.versionId.equals(castOther.versionId)
-			&& this.sectorId.equals(castOther.sectorId);
+			&& this.sectorId.equals(castOther.sectorId)
+			&& this.dimId.equals(castOther.dimId);
 	}
 
 	/* (non-Javadoc)
@@ -113,9 +159,11 @@ public class PasswordPK implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int hash = 17;
+		hash = hash * prime + this.capabilityId.hashCode();
 		hash = hash * prime + this.mapId.hashCode();
 		hash = hash * prime + this.versionId.hashCode();
 		hash = hash * prime + this.sectorId.hashCode();
+		hash = hash * prime + this.dimId.hashCode();
 		
 		return hash;
 	}
